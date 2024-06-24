@@ -1,0 +1,61 @@
+MATERI LARAVEL
+
+Aplikasi Yang Dibutuhkan
+- Composer
+- Chrome
+- VS Code
+- Xampp
+- Git Bash
+
+Extensions Support for Laravel
+- laravel snippets
+- laravel blade
+- laravel blade formatter
+- laravel blade snippets
+- laravel go to view
+- formatting toggle
+- phpfmt
+- material icon / vscode icons
+- atom / material theme
+
+Cara Kerja Laravel
+~ Create Project
+composer create-project laravel/laravel:^9.0 <-(versi laravel opsional) (Nama Project)
+!note : PHP/XAMPP version 8
+lokasi install project boleh dimana saja
+
+~create new table database & cara penggunaan
+php artsan make:model (nama table) --all
+php artisan migrate
+php artisan db:seed
+php artisan migrate:fresh
+php artisan migrate:fresh --seed
+
+~Menjalankan Server
+php artisan serve
+
+
+<h1>Judul Film : {{ $film->judul }}</h1>
+<p>Deskripsi Film : {{ $film->deskripsi }}</p>
+
+{{-- {{ Start One To One }} --}}
+<span>
+    <h3>Detail Film</h3>
+    <p>Code Film : {{ $film->DetailFilm->code_film }}</p>
+    <p>URL IMDB : <a href="{{ $film->DetailFilm->url_imdb }}">Klik Disini</a></p>
+</span>
+{{-- {{ End One To One }} --}}
+
+
+{{-- {{ Start One To Many }} --}}
+@foreach ($film->MediaFilm as $item)
+    <p>Media Title : {{ $item->media_title }}</p>
+    {{-- <p>Url Media : {{ $item->url_media }}</p> --}}
+    @if ($item->media_type)
+        <p>Url Media : <a href="{{ $item->url_media }}">Klik For Video</a></p>
+    @else
+        <img src="{{ $item->url_media }}" alt="" height="200">
+    @endif
+    <hr>
+@endforeach
+{{-- {{ End One To Many }} --}}
