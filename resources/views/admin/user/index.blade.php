@@ -17,14 +17,13 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                <button type="button" class="btn btn-grd-primary"><a href="{{ route('user.create') }}" class="text-white">Add
-                        Data</a></button>
+                <button type="button" class="btn btn-grd-primary"><a href="{{ route('user.create') }}" class="text-white">Add Data</a></button>
             </div>
         </div>
     </div>
     <!--end breadcrumb-->
 
-    <h6 class="mb-0 text-uppercase">DataTable User</h6>
+    <h6 class="mb-0 text-uppercase">DataTable Users</h6>
     <hr>
     <div class="card">
         <div class="card-body">
@@ -42,7 +41,16 @@
                     <tbody>
                         @php $i = 1;  @endphp
                         @foreach ($users as $data)
+                            @if ($loop->first)
                             <tr>
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $data->name }}</td>
+                                <td>{{ $data->email }}</td>
+                                <td>{{ $data->isAdmin == 1 ? 'Admin' : 'User' }}</td>
+                                <td></td>
+                            </tr>
+                            @else
+                             <tr>
                                 <td>{{ $i++ }}</td>
                                 <td>{{ $data->name }}</td>
                                 <td>{{ $data->email }}</td>
@@ -67,6 +75,7 @@
                                     </form>
                                 </td>
                             </tr>
+                            @endif
                         @endforeach
 
                     </tbody>
