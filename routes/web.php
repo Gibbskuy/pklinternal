@@ -2,6 +2,8 @@
 
 use App\http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\IsAdmin;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,4 +36,10 @@ Route::get('produktrack', [FrontController::class, 'produktrack']);
 Route::get('about', [FrontController::class, 'about']);
 Route::get('produkdetail', [FrontController::class, 'produkdetail']);
 
-
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', IsAdmin::class]], function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+    // untuk Route Backend Lainnya
+    Route::resource('user', App\Http\Controllers\UsersController::class);
+});
