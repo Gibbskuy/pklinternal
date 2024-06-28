@@ -15,11 +15,7 @@
                 </ol>
             </nav>
         </div>
-        <div class="ms-auto">
-            <div class="btn-group">
-                <button type="button" class="btn btn-grd-primary"><a href="{{ route('user.create') }}" class="text-white">Add Data</a></button>
-            </div>
-        </div>
+
     </div>
     <!--end breadcrumb-->
 
@@ -28,6 +24,13 @@
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
+                <div class="ms-auto">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-grd-info"><a href="{{ route('user.create') }}"
+                                class="text-white">Add Data</a></button>
+                    </div>
+                </div>
+                <br>
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
@@ -42,39 +45,35 @@
                         @php $i = 1;  @endphp
                         @foreach ($users as $data)
                             @if ($loop->first)
-                            <tr>
-                                <td>{{ $i++ }}</td>
-                                <td>{{ $data->name }}</td>
-                                <td>{{ $data->email }}</td>
-                                <td>{{ $data->isAdmin == 1 ? 'Admin' : 'User' }}</td>
-                                <td></td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $i++ }}</td>
+                                    <td>{{ $data->name }}</td>
+                                    <td>{{ $data->email }}</td>
+                                    <td>{{ $data->isAdmin == 1 ? 'Admin' : 'User' }}</td>
+                                    <td> <button class="btn btn btn-grd-danger" type="submit" disabled>
+                                            Can't Delete
+                                        </button></td>
+                                </tr>
                             @else
-                             <tr>
-                                <td>{{ $i++ }}</td>
-                                <td>{{ $data->name }}</td>
-                                <td>{{ $data->email }}</td>
-                                <td>{{ $data->isAdmin == 1 ? 'Admin' : 'User' }}</td>
-                                <td>
-                                    <form action="{{ route('user.destroy', $data->id) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <a href="{{ route('user.edit', $data->id) }}" class="btn btn-grd-info">
-                                            Edit
-                                        </a> |
-                                        @if ($i == 2)
-                                            <button class="btn btn btn-danger" type="submit" disabled
-                                                onclick="return confirm('Apakah anda yakin ingin menghapus data ini')">
+                                <tr>
+                                    <td>{{ $i++ }}</td>
+                                    <td>{{ $data->name }}</td>
+                                    <td>{{ $data->email }}</td>
+                                    <td>{{ $data->isAdmin == 1 ? 'Admin' : 'User' }}</td>
+                                    <td>
+                                        <form action="{{ route('user.destroy', $data->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="{{ route('user.edit', $data->id) }}" class="btn btn-grd-success">
+                                                Edit
+                                            </a> |
+                                            <a href="{{ route('user.destroy', $data->id) }}" class="btn btn-grd-danger"
+                                                data-confirm-delete="true">
                                                 Delete
-                                            </button>
-                                        @else
-                                    <a href="{{route('user.destroy', $data->id)}}" class="btn btn-grd-danger" data-confirm-delete="true">
-                                        Delete
-                                    </a>
-                                        @endif
-                                    </form>
-                                </td>
-                            </tr>
+                                            </a>
+                                        </form>
+                                    </td>
+                                </tr>
                             @endif
                         @endforeach
 

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="blue-theme">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -226,15 +226,6 @@
                 <p>Theme variation</p>
 
                 <div class="row g-3">
-                    <div class="col-12 col-xl-6">
-                        <input type="radio" class="btn-check" name="theme-options" id="BlueTheme" checked>
-                        <label
-                            class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4"
-                            for="BlueTheme">
-                            <span class="material-icons-outlined">contactless</span>
-                            <span>Blue</span>
-                        </label>
-                    </div>
                     <div class="col-12 col-xl-6">
                         <input type="radio" class="btn-check" name="theme-options" id="LightTheme">
                         <label

@@ -64,7 +64,7 @@
                                      <span class="tp-product-count">2</span>
                                  </button>
                                  @guest
-                                     <a href="wishlist.html"><i class="fal fa-heart"></i></a>
+                                     <a href="{{url('login')}}"><i class="fal fa-heart"></i></a>
                                 <a href="{{url('login')}}" class="header-meta__value mr-15"><i
                                         class="fal fa-user"></i></a>
                                  @else
