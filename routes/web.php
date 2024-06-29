@@ -42,4 +42,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', IsAdmin::class]], fu
     });
     // untuk Route Backend Lainnya
     Route::resource('user', App\Http\Controllers\UsersController::class);
+    Route::resource('eskul', App\Http\Controllers\EskulController::class);
+    Route::resource('fasilitas', App\Http\Controllers\FasilitasController::class);
+    Route::resource('kurikulum', App\Http\Controllers\KurikulumController::class);
+    Route::resource('informasi', App\Http\Controllers\InformasiController::class);
 });

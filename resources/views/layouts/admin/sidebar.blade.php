@@ -28,33 +28,36 @@
               <div class="menu-title">Users Management</div>
             </a>
           </li>
+          <li class="menu-label"><hr></li>
           <li>
-
-            <ul>
-              <li><a href="app-emailbox.html"><i class="material-icons-outlined">arrow_right</i>Email Box</a>
-              </li>
-              <li><a href="app-emailread.html"><i class="material-icons-outlined">arrow_right</i>Email Read</a>
-              </li>
-              <li><a href="app-chat-box.html"><i class="material-icons-outlined">arrow_right</i>Chat</a>
-              </li>
-              <li><a href="app-fullcalender.html"><i class="material-icons-outlined">arrow_right</i>Calendar</a>
-              </li>
-              <li><a href="app-to-do.html"><i class="material-icons-outlined">arrow_right</i>To do</a>
-              </li>
-              <li><a href="app-invoice.html"><i class="material-icons-outlined">arrow_right</i>Invoice</a>
-              </li>
-            </ul>
-          </li>
-          <li class="menu-label">UI Elements</li>
-          <li>
-            <a href="cards.html">
-              <div class="parent-icon"><i class="material-icons-outlined">inventory_2</i>
+            <a href="{{route('eskul.index')}}">
+              <div class="parent-icon"><i class="material-icons-outlined">description</i>
               </div>
-              <div class="menu-title">Cards</div>
+              <div class="menu-title">Estrakulikuler</div>
             </a>
           </li>
-
           <li>
+            <a href="{{route('fasilitas.index')}}">
+              <div class="parent-icon"><i class="material-icons-outlined">description</i>
+              </div>
+              <div class="menu-title">Fasilitas</div>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('kurikulum.index')}}">
+              <div class="parent-icon"><i class="material-icons-outlined">description</i>
+              </div>
+              <div class="menu-title">Kurikulum</div>
+            </a>
+          </li>
+             <li>
+            <a href="{{route('informasi.index')}}">
+              <div class="parent-icon"><i class="material-icons-outlined">description</i>
+              </div>
+              <div class="menu-title">Informasi</div>
+            </a>
+          </li>
+          {{-- <li>
             <a href="javascript:;" class="has-arrow">
               <div class="parent-icon"><i class="material-icons-outlined">shopping_bag</i>
               </div>
@@ -330,7 +333,7 @@
             </a>
           </li>
          </ul>
-        <!--end navigation-->
+        <!--end navigation--> --}}
     </div>
   </aside>
 
